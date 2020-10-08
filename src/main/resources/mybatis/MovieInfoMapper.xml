@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybaits.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.frame.mapper.MovieInfoMapper">
+    <select id="getMovieInfoById" parameterType="java.lang.Long" resultType="com.frame.entity.MovieInfo">
+            SELECT m.name,m.published_year AS publishedYear,m.type,mp.preference
+            FROM movie_preferences mp,movies m
+            WHERE mp.movieID=m.id AND mp.userID = #{id}
+            ORDER BY preference DESC
+    </select>
+
+    <select id="getMovieByMovieId" parameterType="java.util.List" resultType="com.frame.entity.Movie">
+        SELECT m.name,m.published_year AS year,m.type
+        FROM movies m
+        WHERE m.id
+        IN
+        <foreach collection="list" index="index" item="item" open="("
+                 separator="," close=")">
+            #{item.id}
+        </foreach>
+    </select>
+
+    <!--<select id="getTopGoodsEval" parameterType="java.util.ArrayList"-->
+            <!--resultType="GoodsComment">-->
+        <!--select t.eid,ge.content,ge.goodsid as goodsId from-->
+        <!--(-->
+        <!--select max(ge.eid)-->
+        <!--as eid from goods_evaluation ge where ge.goodsid-->
+        <!--in-->
+        <!--<foreach collection="values[]" index="index" item="item" open="("-->
+                 <!--separator="," close=")">-->
+            <!--#{item}-->
+        <!--</foreach>-->
+        <!--and ge.isdisplay='0' group by ge.goodsid-->
+        <!--) t,goods_evaluation ge where-->
+        <!--ge.eid=t.eid-->
+    <!--</select>-->
+</mapper>
