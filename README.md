@@ -1,7 +1,7 @@
 # 简介
 **最新使用Maven搭建springMVC+spring+mybatis（SSM）。
 **实现基于mahout的系统过滤推荐
-博客：
+**博客：https://blog.csdn.net/weixin_40017996/article/details/108961212
 
 
 # 环境
