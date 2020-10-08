@@ -1,14 +1,12 @@
 # 简介
 **最新使用Maven搭建springMVC+spring+mybatis（SSM）的详细过程Demo。**<br>
-#### 另附上本人基于SSM搭建的高效便捷开发框架，详情参考[https://github.com/micyo202](https://github.com/micyo202/yan_demo)
 
 # 环境
-* MacOS Sierra / Windows 7
+* Windows 10
 * MySql 5.7
 * JDK 1.8
-* Eclipse 4.6.1
 * Maven 3.3.9
-* Jetty 9.4.6.v20170531 / Tomcat 9.0
+* IDEA 2018
 
 # 技术选型
 名称 | 描述 | 版本号 | 网址
@@ -22,6 +20,7 @@ Jackson| json解析器 | 2.9.1 | [https://github.com/FasterXML/jackson](https://
 Logback| 日志组件 | 1.2.3 | [https://logback.qos.ch](https://logback.qos.ch)
 Maven| 项目构建管理 | 3.3.9 | [http://maven.apache.org/](http://maven.apache.org/)
 
+
 # 搭建步骤
 ## 一、创建Maven项目
 ##### 具体操作如下图<br>
@@ -33,141 +32,7 @@ Maven| 项目构建管理 | 3.3.9 | [http://maven.apache.org/](http://maven.apac
 ##### 接下来在项目上右键选择最后一项 **Properties > Project Facets**
 ![5.png](http://upload-images.jianshu.io/upload_images/8015461-2eb6c1851eb7e0e6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 ##### 到这里一个Maven的Web项目就创建好了
-
-## 二、在pom.xml中添加依赖包
-```xml
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-	<modelVersion>4.0.0</modelVersion>
-	<groupId>com.frame</groupId>
-	<artifactId>ssm</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
-	<packaging>war</packaging>
-
-	<properties>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<spring.framework.version>4.3.11.RELEASE</spring.framework.version>
-		<aspectj.version>1.8.10</aspectj.version>
-		<jackson.version>2.9.1</jackson.version>
-		<logback.version>1.2.3</logback.version>
-	</properties>
-
-	<dependencies>
-		<!-- 添加 commons 依赖包 -->
-		<dependency>
-			<groupId>commons-fileupload</groupId>
-			<artifactId>commons-fileupload</artifactId>
-			<version>1.3.3</version>
-		</dependency>
-		<dependency>
-			<groupId>commons-io</groupId>
-			<artifactId>commons-io</artifactId>
-			<version>2.5</version>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.commons</groupId>
-			<artifactId>commons-lang3</artifactId>
-			<version>3.6</version>
-		</dependency>
-
-		<!-- 添加 spring 依赖包 -->
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-aspects</artifactId>
-			<version>${spring.framework.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-context</artifactId>
-			<version>${spring.framework.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-jdbc</artifactId>
-			<version>${spring.framework.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-webmvc</artifactId>
-			<version>${spring.framework.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-context-support</artifactId>
-			<version>${spring.framework.version}</version>
-		</dependency>
-
-		<!-- 添加 aspectJ 依赖包 -->
-		<dependency>
-			<groupId>org.aspectj</groupId>
-			<artifactId>aspectjweaver</artifactId>
-			<version>${aspectj.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.aspectj</groupId>
-			<artifactId>aspectjrt</artifactId>
-			<version>${aspectj.version}</version>
-		</dependency>
-
-		<!-- 添加 mybatis 依赖包 -->
-		<dependency>
-			<groupId>org.mybatis</groupId>
-			<artifactId>mybatis</artifactId>
-			<version>3.4.5</version>
-		</dependency>
-		<dependency>
-			<groupId>org.mybatis</groupId>
-			<artifactId>mybatis-spring</artifactId>
-			<version>1.3.1</version>
-		</dependency>
-
-		<!-- 添加 druid 依赖包 -->
-		<dependency>
-			<groupId>com.alibaba</groupId>
-			<artifactId>druid</artifactId>
-			<version>1.1.3</version>
-		</dependency>
-
-		<!-- 添加 mysql 驱动 -->
-		<dependency>
-			<groupId>mysql</groupId>
-			<artifactId>mysql-connector-java</artifactId>
-			<version>5.1.44</version>
-		</dependency>
-
-		<!-- 添加 jackson 依赖包 -->
-		<dependency>
-			<groupId>com.fasterxml.jackson.core</groupId>
-			<artifactId>jackson-databind</artifactId>
-			<version>${jackson.version}</version>
-		</dependency>
-
-		<!-- 添加 servlet 依赖包 -->
-		<dependency>
-			<groupId>javax.servlet</groupId>
-			<artifactId>javax.servlet-api</artifactId>
-			<version>3.1.0</version>
-		</dependency>
-
-		<!-- 添加 jstl 依赖包 -->
-		<dependency>
-			<groupId>javax.servlet</groupId>
-			<artifactId>jstl</artifactId>
-			<version>1.2</version>
-		</dependency>
-
-		<!-- 添加 logback 依赖包 -->
-		<dependency>
-			<groupId>ch.qos.logback</groupId>
-			<artifactId>logback-classic</artifactId>
-			<version>${logback.version}</version>
-		</dependency>
-
-	</dependencies>
-
-</project>
-```
-## 三、配置web.xml文件
+## 二、配置web.xml文件
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -453,6 +318,3 @@ public class DemoController {
 ```console
 执行hello控制器方法
 返回查询结果集 -> [{ID=1ba6d11d2639401ebf63c00c5ae7c2a0, NAME=SSM, TYPE=FRAME}]
-```
-##### 到此整个框架最基本的搭建就完成了，接下来即可进入开发阶段，如果感觉不错请分享出去。
-#### 这里推荐本人自己基于SSM搭建的高效便捷开发框架，上手就能用，详情参考[https://github.com/micyo202](https://github.com/micyo202/yan_demo)
