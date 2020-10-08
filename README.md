@@ -1,5 +1,7 @@
 # 简介
-**最新使用Maven搭建springMVC+spring+mybatis（SSM）的详细过程Demo。**<br>
+**最新使用Maven搭建springMVC+spring+mybatis（SSM）。
+**实现基于mahout的系统过滤推荐
+
 
 # 环境
 * Windows 10
