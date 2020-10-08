@@ -25,15 +25,7 @@ Maven| 项目构建管理 | 3.3.9 | [http://maven.apache.org/](http://maven.apac
 
 # 搭建步骤
 ## 一、创建Maven项目
-##### 具体操作如下图<br>
-![1.png](http://upload-images.jianshu.io/upload_images/8015461-c17ba12874caec50.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-![2.png](http://upload-images.jianshu.io/upload_images/8015461-63b386013cb776ea.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-![3.png](http://upload-images.jianshu.io/upload_images/8015461-58c0e09a3326a455.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-##### 新建好的项目会有报错提示，别着急，在项目上右键选择 Java EE Tools > Generate Deployment Descriptor Stub
-![4.png](http://upload-images.jianshu.io/upload_images/8015461-96b62cc81ecc329d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-##### 接下来在项目上右键选择最后一项 **Properties > Project Facets**
-![5.png](http://upload-images.jianshu.io/upload_images/8015461-2eb6c1851eb7e0e6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-##### 到这里一个Maven的Web项目就创建好了
+略
 ## 二、配置web.xml文件
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
